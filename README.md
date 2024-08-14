@@ -4,15 +4,11 @@ Laboratorio Comunicaciones I
 Estudiantes:
 
 Meyer José Suarez Monroy
-
 2211601
-
 Estudiante Ing.electrónica
 
 Tatiana Stella Zárate Luna
-
 2201848
-
 Estudiante Ing.electrónica
 
 
