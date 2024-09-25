@@ -12,6 +12,7 @@ from PyQt5 import Qt
 from gnuradio import qtgui
 from PyQt5 import QtCore
 from gnuradio import analog
+from gnuradio import audio
 from gnuradio import blocks
 from gnuradio import filter
 from gnuradio.filter import firdes
@@ -64,8 +65,8 @@ class Prueba_2(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 25e6/8
-        self.t_band = t_band = samp_rate/20
+        self.samp_rate = samp_rate = int(25e6/8)
+        self.t_band = t_band = samp_rate/200
         self.fm = fm = 10000
         self.fcut = fcut = samp_rate/2
         self.No = No = 1e-4
@@ -75,21 +76,25 @@ class Prueba_2(gr.top_block, Qt.QWidget):
         # Blocks
         ##################################################
 
-        self._t_band_range = qtgui.Range(0, samp_rate/20, 100, samp_rate/20, 200)
+        self._t_band_range = qtgui.Range(0, samp_rate/20, 100, samp_rate/200, 200)
         self._t_band_win = qtgui.RangeWidget(self._t_band_range, self.set_t_band, "Banda de transición", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._t_band_win)
-        self._fm_range = qtgui.Range(1000, 1e6, 1000, 10000, 200)
-        self._fm_win = qtgui.RangeWidget(self._fm_range, self.set_fm, "Frecuencia señal", "counter_slider", float, QtCore.Qt.Horizontal)
-        self.top_layout.addWidget(self._fm_win)
         self._fcut_range = qtgui.Range(0, samp_rate/2, 100, samp_rate/2, 200)
         self._fcut_win = qtgui.RangeWidget(self._fcut_range, self.set_fcut, "'fcut'", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._fcut_win)
-        self._No_range = qtgui.Range(0, 1e-1, 1e-6, 1e-4, 200)
+        self._No_range = qtgui.Range(0, 1, 1e-6, 1e-4, 200)
         self._No_win = qtgui.RangeWidget(self._No_range, self.set_No, "Amplitud ruido", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._No_win)
-        self._A_range = qtgui.Range(0, 500e-3, 1e-2, 500e-3, 200)
-        self._A_win = qtgui.RangeWidget(self._A_range, self.set_A, "Amplitud señal", "counter_slider", float, QtCore.Qt.Horizontal)
-        self.top_layout.addWidget(self._A_win)
+        self.rational_resampler_xxx_2 = filter.rational_resampler_fff(
+                interpolation=441000,
+                decimation=samp_rate,
+                taps=[],
+                fractional_bw=0)
+        self.rational_resampler_xxx_0 = filter.rational_resampler_fff(
+                interpolation=samp_rate,
+                decimation=441000,
+                taps=[],
+                fractional_bw=0)
         self.qtgui_time_sink_x_0 = qtgui.time_sink_f(
             1024, #size
             samp_rate, #samp_rate
@@ -190,21 +195,31 @@ class Prueba_2(gr.top_block, Qt.QWidget):
                 t_band,
                 window.WIN_HAMMING,
                 6.76))
+        self._fm_range = qtgui.Range(1000, 1e6, 1000, 10000, 200)
+        self._fm_win = qtgui.RangeWidget(self._fm_range, self.set_fm, "Frecuencia señal", "counter_slider", float, QtCore.Qt.Horizontal)
+        self.top_layout.addWidget(self._fm_win)
+        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/labcomu/Practica_2_Canal/despecha_rosalia (1).wav', True)
         self.blocks_throttle2_0 = blocks.throttle( gr.sizeof_float*1, samp_rate, True, 0 if "auto" == "auto" else max( int(float(0.1) * samp_rate) if "auto" == "time" else int(0.1), 1) )
         self.blocks_add_xx_0 = blocks.add_vff(1)
-        self.analog_sig_source_x_0 = analog.sig_source_f(samp_rate, analog.GR_SQR_WAVE, fm, A, 0, 0)
+        self.audio_sink_0 = audio.sink(44100, '', True)
         self.analog_noise_source_x_0 = analog.noise_source_f(analog.GR_GAUSSIAN, No, 0)
+        self._A_range = qtgui.Range(0, 500e-3, 1e-2, 500e-3, 200)
+        self._A_win = qtgui.RangeWidget(self._A_range, self.set_A, "Amplitud señal", "counter_slider", float, QtCore.Qt.Horizontal)
+        self.top_layout.addWidget(self._A_win)
 
 
         ##################################################
         # Connections
         ##################################################
         self.connect((self.analog_noise_source_x_0, 0), (self.blocks_add_xx_0, 1))
-        self.connect((self.analog_sig_source_x_0, 0), (self.blocks_throttle2_0, 0))
         self.connect((self.blocks_add_xx_0, 0), (self.low_pass_filter_0, 0))
         self.connect((self.blocks_throttle2_0, 0), (self.blocks_add_xx_0, 0))
+        self.connect((self.blocks_wavfile_source_0, 0), (self.rational_resampler_xxx_0, 0))
         self.connect((self.low_pass_filter_0, 0), (self.qtgui_freq_sink_x_0, 0))
         self.connect((self.low_pass_filter_0, 0), (self.qtgui_time_sink_x_0, 0))
+        self.connect((self.low_pass_filter_0, 0), (self.rational_resampler_xxx_2, 0))
+        self.connect((self.rational_resampler_xxx_0, 0), (self.blocks_throttle2_0, 0))
+        self.connect((self.rational_resampler_xxx_2, 0), (self.audio_sink_0, 0))
 
 
     def closeEvent(self, event):
@@ -221,8 +236,7 @@ class Prueba_2(gr.top_block, Qt.QWidget):
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
         self.set_fcut(self.samp_rate/2)
-        self.set_t_band(self.samp_rate/20)
-        self.analog_sig_source_x_0.set_sampling_freq(self.samp_rate)
+        self.set_t_band(self.samp_rate/200)
         self.blocks_throttle2_0.set_sample_rate(self.samp_rate)
         self.low_pass_filter_0.set_taps(firdes.low_pass(1, self.samp_rate, self.fcut, self.t_band, window.WIN_HAMMING, 6.76))
         self.qtgui_freq_sink_x_0.set_frequency_range(0, self.samp_rate)
@@ -240,7 +254,6 @@ class Prueba_2(gr.top_block, Qt.QWidget):
 
     def set_fm(self, fm):
         self.fm = fm
-        self.analog_sig_source_x_0.set_frequency(self.fm)
 
     def get_fcut(self):
         return self.fcut
@@ -261,7 +274,6 @@ class Prueba_2(gr.top_block, Qt.QWidget):
 
     def set_A(self, A):
         self.A = A
-        self.analog_sig_source_x_0.set_amplitude(self.A)
 
 
 
