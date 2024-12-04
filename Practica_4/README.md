@@ -10,7 +10,7 @@ y ademas mejorando la resolusion  a 16200 para que fuera mas facil el analisis.
 
 
 
-En la siguiente imagen se pueden apreciar dos emisoras analizadas con el analizador de espectro, en esta practica aprendimos a utilizar la funcion 
+En la siguiente imagen se pueden apreciar dos emisoras analizadas con el analizador de espectro, en esta practica aprendimos a utilizar la funcion KpAm < 0.1 
 de traza 2 y max hold dle analizador, esto debido a que las emisoras varian en frecuencia lo que dificultaba medir su ancho de banda haciendo uso del criterio
 de los 20dB
 ![image](https://github.com/user-attachments/assets/be85ff43-e4af-47a6-be50-b61a50bcd30f)
@@ -22,6 +22,18 @@ que la mayoria de las emisoras no cumplen el ancho de banda maximo permitido.
 
 En la practica 4B se buscó analizar el comportamiento de una modulacion fm en banda ancha y en banda estrecha, se analizaron 2 casos para los que KaAM < 0.1 y otros 
 dos casos donde KpAm > 4, para estos analisis se reviso la señal en el tiempo por medio de GNU radio, luego la señal modulada en el analizador de espectro y finalmente
-la señal modulada en el analizador de espectr.
+la señal modulada en el analizador de espectro.
 
-En la siguiente imagen se puede apreciar un caso de KpAm < 0.1 donde se uede observar la modulacion en banda estrecha.
+En la siguiente imagen se puede apreciar un caso de KpAm < 0.1 donde se uede observar la modulacion en banda estrecha, en este caso se puede observar que esta modulacion
+se parece mas a una modulacion en amplitud.
+
+![image](https://github.com/user-attachments/assets/0b94b06d-01d2-4fe2-85ba-7d7879314dbb)
+
+En la siguiente imagen se puede apresiar un caso de KpAm > 4 que ya hace parte de banda ancha, en esta ocasion su puede observar que la modulacion ya es una modulacion 
+en frecuencia.
+
+![image](https://github.com/user-attachments/assets/911c0acc-8a2b-409f-a0a6-d1c7da26e970)
+
+como no se puede evidensiar de forma evidende la modulacion fm en banda anchas se hizo el analisis con un KpAm > 10 dde la cual se obtuvo la siguiente imagen
+
+![image](https://github.com/user-attachments/assets/0857a6b3-d110-4372-abe0-3133d31f5e19)
