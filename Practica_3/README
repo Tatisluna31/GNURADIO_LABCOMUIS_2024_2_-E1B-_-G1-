@@ -1,1 +1,7 @@
 
+En la practica 3A se tenia una señal aleatoria la cual era un bit, durante esta practica aprendimos a medir el tiempo del bit usando el osciloscopio
+este se media colocando 2 cursores verticales buscando el segmentomas corto que aparezca, esto dado que la señal se ve como rectangulos algunos de mayor 
+longitud que otros,esto se debe a que al ser una señal aleatoria se puede repetir, tambien en el analizador de espectro se pudo analizar esta señal la cual se veia
+como una funcion sinc con ancho de banda 1/Tb.
+
+En la practica 3B 
