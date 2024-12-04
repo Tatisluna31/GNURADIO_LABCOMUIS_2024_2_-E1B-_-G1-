@@ -31,10 +31,12 @@ dos armonicos correspondientes al mensaje.
 ![image](https://github.com/user-attachments/assets/0b94b06d-01d2-4fe2-85ba-7d7879314dbb)
 
 En la siguiente imagen se puede apresiar un caso de KpAm > 4 que ya hace parte de banda ancha, en esta ocasion su puede observar que la modulacion ya es una modulacion 
-en frecuencia.
+en frecuencia para este caso como ya es netamente una modulacion en frecuencia, se ven muchos mas armonicos en el analizador de espectro, en el analisis de la señal modulada 
+en el osciloscopio se puede ver que la frecuencia aumenta desde el centro hacia los lados.
 
 ![image](https://github.com/user-attachments/assets/911c0acc-8a2b-409f-a0a6-d1c7da26e970)
 
-como no se puede evidensiar de forma evidende la modulacion fm en banda anchas se hizo el analisis con un KpAm > 10 dde la cual se obtuvo la siguiente imagen
+como no se puede evidensiar de forma evidende la modulacion fm en banda anchas se hizo el analisis con un KpAm > 10 dde la cual se obtuvo la siguiente imagen como se menciono
+anteriormente la frecuencia de la señal modulada se ve como varia su frecuencia en el tiempo.
 
 ![image](https://github.com/user-attachments/assets/0857a6b3-d110-4372-abe0-3133d31f5e19)
