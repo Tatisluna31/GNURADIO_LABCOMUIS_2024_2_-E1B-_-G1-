@@ -25,7 +25,8 @@ dos casos donde KpAm > 4, para estos analisis se reviso la señal en el tiempo p
 la señal modulada en el analizador de espectro.
 
 En la siguiente imagen se puede apreciar un caso de KpAm < 0.1 donde se uede observar la modulacion en banda estrecha, en este caso se puede observar que esta modulacion
-se parece mas a una modulacion en amplitud.
+se parece mas a una modulacion en amplitud esto se da por el hecho de ser banda estrecha en el analizador de espectro se puede observar el armonico de la portadora y los
+dos armonicos correspondientes al mensaje.
 
 ![image](https://github.com/user-attachments/assets/0b94b06d-01d2-4fe2-85ba-7d7879314dbb)
 
