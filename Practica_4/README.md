@@ -37,10 +37,18 @@ en el osciloscopio se puede ver que la frecuencia aumenta desde el centro hacia 
 ![image](https://github.com/user-attachments/assets/911c0acc-8a2b-409f-a0a6-d1c7da26e970)
 
 
-![image](https://github.com/user-attachments/assets/0857a6b3-d110-4372-abe0-3133d31f5e19)
+
 conclusiones;
 La señal modulada presenta una similitud significativa con la modulación AM, ya que los cambios en la frecuencia instantánea son pequeños y, visualmente, parecen variaciones en la amplitud.
 En este régimen, la señal modulada se distingue claramente de una modulación AM, ya que los cambios significativos en la frecuencia instantánea generan múltiples componentes espectrales (bandas laterales), extendiéndose ampliamente en el espectro.
 como no se puede evidensiar de forma evidende la modulacion fm en banda anchas se hizo el analisis con un KpAm > 10 dde la cual se obtuvo la siguiente imagen como se menciono
 anteriormente la frecuencia de la señal modulada se ve como varia su frecuencia en el tiempo.
+
+![image](https://github.com/user-attachments/assets/0857a6b3-d110-4372-abe0-3133d31f5e19)
+
+
+![image](https://github.com/user-attachments/assets/b4310327-6cda-4e96-8665-6d9eb1b01c26)
+
+
+![image](https://github.com/user-attachments/assets/7715ecc7-26d2-42cb-a549-0e8172ab8f1e)
 
