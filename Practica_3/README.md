@@ -14,4 +14,5 @@ el bit como tal, en esta practica se aprendio a medir el tiempo del bit, el cual
 del osciloscpio y ubicandols de inicio a fin en dicho rectangulo, se busca el rectangulo mas corto dado que al ser una señal aleatoria, esta se puede repetir haciendo
 que este rectangulo tenga mayor longitud, ahora como esta señal es cuadrada, su espectro en frecuencia es una funcion de la forma sinc la cual tiene un ancho de banda igual
 a 1/Tb
-![image](https://github.com/user-attachments/assets/b092f149-8312-4e9c-b30c-6eae1498d9f1)
+![image](https://github.com/user-attachments/assets/02703495-1ed5-49e9-8b49-11f4d47ca003)
+![image](https://github.com/user-attachments/assets/9c5327b5-fa10-47e9-b1ac-fada9cfa96b5)
