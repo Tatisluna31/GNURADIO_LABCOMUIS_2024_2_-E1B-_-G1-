@@ -46,6 +46,8 @@ anteriormente la frecuencia de la señal modulada se ve como varia su frecuencia
 
 ![image](https://github.com/user-attachments/assets/0857a6b3-d110-4372-abe0-3133d31f5e19)
 
+ademas con la tabla proporcionada y midiendo cada banda lateral se obtuvieron los siguientes resultados. algunas porcentahes de error dieron altos debido a la baja potencia de la banda 
+se puede ver que con el k mayor hubo menos error en este caluclo.
 
 ![image](https://github.com/user-attachments/assets/b4310327-6cda-4e96-8665-6d9eb1b01c26)
 
