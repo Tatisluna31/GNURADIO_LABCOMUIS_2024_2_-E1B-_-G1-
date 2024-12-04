@@ -14,3 +14,14 @@ En la siguiente imagen se pueden apreciar dos emisoras analizadas con el analiza
 de traza 2 y max hold dle analizador, esto debido a que las emisoras varian en frecuencia lo que dificultaba medir su ancho de banda haciendo uso del criterio
 de los 20dB
 ![image](https://github.com/user-attachments/assets/be85ff43-e4af-47a6-be50-b61a50bcd30f)
+
+las conclusiones de esta parte de la practica son que, hay emisoras que tienen diferentes caracteristicas y anchos de banda, ademas se pudo evidenciar
+que la mayoria de las emisoras no cumplen el ancho de banda maximo permitido.
+
+................................................................................................................................................................
+
+En la practica 4B se buscó analizar el comportamiento de una modulacion fm en banda ancha y en banda estrecha, se analizaron 2 casos para los que KaAM < 0.1 y otros 
+dos casos donde KpAm > 4, para estos analisis se reviso la señal en el tiempo por medio de GNU radio, luego la señal modulada en el analizador de espectro y finalmente
+la señal modulada en el analizador de espectr.
+
+En la siguiente imagen se puede apreciar un caso de KpAm < 0.1 donde se uede observar la modulacion en banda estrecha.
